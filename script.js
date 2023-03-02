@@ -1,4 +1,6 @@
 const dataLoad=()=>{
+    // start spinner
+    toggleSpinner(true);
      fetch('https://openapi.programming-hero.com/api/ai/tools')
      .then(res=>res.json())
      .then(data=>displayTools(data.data.tools));
@@ -39,6 +41,18 @@ const displayTools=(tools)=>{
     </div>
   `;
   toolsContainer.appendChild(div);
-  })
+  });
+//   end spinner
+  toggleSpinner(false);
 }
+// spinner section start
+const toggleSpinner=isLoading=>{
+    const loaderSection=document.getElementById('loader');
+    if(isLoading){
+        loaderSection.classList.remove('d-none');
+    }else{
+        loaderSection.classList.add('d-none');
+    }
+}
+// spinner section end
 dataLoad();
