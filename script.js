@@ -18,8 +18,8 @@ const displayTools=(tools, dataLimit)=>{
     }
 // show all section end
    tools.forEach(tool=>{
-    console.log(tool);
-    const {features, image,name, published_in}=tool;
+    // console.log(tool);
+    const {features, image,name, published_in, id}=tool;
     const [x, y, z]=features;
     const div=document.createElement('div');
   div.classList.add('col');
@@ -42,7 +42,7 @@ const displayTools=(tools, dataLimit)=>{
         </div>
         </div>
         <div class="col text-end">
-           <button class="btn btn-danger rounded-pill">
+           <button onclick="loadToolsDetails('${id}')" class="btn btn-danger rounded-pill" data-bs-toggle="modal" data-bs-target="#toolsModal">
              <i class="fa-solid fa-arrow-right "></i>
            </button>
         </div>
@@ -56,6 +56,19 @@ const displayTools=(tools, dataLimit)=>{
   toggleSpinner(false);
 
 }
+// single data details show with model
+const loadToolsDetails=(id)=>{
+    // console.log(id)
+    const url=`https://openapi.programming-hero.com/api/ai/tool/${id}`;
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>showModalToolsData(data.data));
+}
+
+const showModalToolsData=()=>{
+
+}
+
 // spinner section start
 const toggleSpinner=isLoading=>{
     const loaderSection=document.getElementById('loader');
