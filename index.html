@@ -34,14 +34,45 @@
             <div id="container" class="row row-cols-1 row-cols-md-3 g-4">
 
 
-             </div>
+          </div>
              <!-- display data from api end -->
 
              <!-- show all data section start -->
-              <div id="show-all" class="text-center mt-4">
-                 <div id="btn-show-all" class="btn btn-danger">Show All</div>
+              <div id="show-all" class="text-center my-4 d-none">
+                 <div id="btn-show-all" class="btn btn-danger">See More</div>
               </div>
              <!-- show all data section end -->
+
+             <!-- Modal section start  -->
+          <!-- Vertically centered modal -->
+
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#toolsModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="toolsModal" tabindex="-1" aria-labelledby="toolsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content position-relative">
+      <div class="position-absolute top-0 start-100 translate-middle rounded-circle bg-danger p-2">
+      
+        <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body mt-4 p-5 ">
+       <div class="container-fluid">
+      <div class="row">
+      <div class="col-md-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti vero optio laborum enim! Quia aspernatur quibusdam ducimus iste doloribus. Eaque quod eum laborum adipisci officiis accusamus deleniti numquam, dolorum optio nam! Nam, esse nesciunt omnis enim laudantium praesentium ullam nulla deleniti debitis animi similique suscipit velit dicta aut ratione eos.</div>
+      <div class="col-md-6 ms-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque repellat ea, corrupti culpa reprehenderit similique, nihil dolor, libero cum quibusdam sequi incidunt doloremque? Autem, at voluptatem quo doloribus, iure debitis molestias blanditiis enim saepe minima quis architecto? Distinctio beatae voluptatibus totam nihil pariatur ullam, quia incidunt exercitationem similique molestiae dignissimos.</div>
+    </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+             <!-- Modal section end  -->
+
 
 
         </section>
