@@ -28,9 +28,9 @@ const displayTools=(tools, dataLimit)=>{
       <img src="${image}" class="card-img-top rounded-lg" alt="...">
       <div class="card-body">
       <h2>Features</h2>
-      <p>1. ${x}</p>
-      <p>2. ${y}</p>
-      <p>3. ${z}</p>
+      <p>1. ${x?x:'No data found'}</p>
+      <p>2. ${y?y:'No data found'}}</p>
+      <p>3. ${z?z:'No data found'}}</p>
       </div>
       <div class="card-footer">
       <h5 class="card-title">${name}</h5>
@@ -65,8 +65,34 @@ const loadToolsDetails=(id)=>{
     .then(data=>showModalToolsData(data.data));
 }
 
-const showModalToolsData=()=>{
+const showModalToolsData=(toolsDetail)=>{
+    console.log(toolsDetail);
+     const {description, pricing, features, integrations, input_output_examples,image_link, accuracy }=toolsDetail;
+    const titleDescription=document.getElementById('title');
+    titleDescription.innerText=description;
+    document.getElementById('cost-1').innerHTML=`<span class="text-center text-warning">${pricing[0].price?pricing[0].price:'No data found'}</span><br><span class="text-center text-warning">${pricing[0].plan?pricing[0].plan:'No data found'}</span>`;
+    document.getElementById('cost-2').innerHTML=`<span class="text-center text-success">${pricing[1].price?pricing[1].price:'No data found'}</span><br><span class="text-center text-success">${pricing[1].plan?pricing[1].plan:'No data found'}</span>`;
+    document.getElementById('cost-3').innerHTML=`<span class="text-center text-primary">${pricing[2].price?pricing[2].price:'No data found'}</span><br><span class="text-center text-primary">${pricing[2].plan?pricing[2].plan:'No data found'}}</span>`;
 
+    document.getElementById('li').innerHTML=`
+    <li>${features['1'].feature_name?features['1'].feature_name:'No data found'}</li>
+    <li>${features['2'].feature_name?features['2'].feature_name:'No data found'}</li>
+    <li>${features['3'].feature_name?features['3'].feature_name:'No data found'}</li>
+    `;
+     document.getElementById('li-integrations').innerHTML=`
+    <li>${integrations[0]?integrations[0]:'No data found'}</li>
+    <li>${integrations[1]?integrations[1]:'No data found'}</li>
+    <li>${integrations[2]?integrations[2]:'No data found'}</li>
+    `;
+    document.getElementById('accuracy').innerHTML=`
+    <span class="bg-danger p-3 w-25 rounded fs-6 text-light">${accuracy.score*100? (accuracy.score*100 ):'no-score found'} % accuracy</span>
+    `
+    document.getElementById('image').innerHTML=`
+    <img src="${image_link[0]}" class="card-img-top rounded-lg" alt="...">
+    `
+    document.getElementById('input').innerText=`${input_output_examples[0].input? input_output_examples[0].input:'No data found'}`;
+    document.getElementById('output').innerText=`${input_output_examples[0].output? input_output_examples[0].output:'No data found'}`;
+     
 }
 
 // spinner section start
