@@ -8,7 +8,6 @@ const dataLoad=(dataLimit)=>{
 const displayTools=(tools, dataLimit)=>{
   const toolsContainer=document.getElementById('container');
   toolsContainer.textContent='';
-  console.log(tools);
 
 
 
@@ -61,25 +60,7 @@ const displayTools=(tools, dataLimit)=>{
   toggleSpinner(false);
 
 }
-// sort by date section
-const fetchDate=()=>{
-    fetch('https://openapi.programming-hero.com/api/ai/tools')
-    .then(res=>res.json())
-    .then(data=>displayDate(data.data.tools));
-}
-const displayDate=(tools)=>{
-  console.log(tools);
-  const arr1=tools.map(obj=>{
-    return {...obj, published_in:new Date(obj.published_in)};
-  });
-  const sortedAsc=arr1.sort(
-    (objA, objB)=>Number(objA.published_in) - Number(objB.published_in),
-  );
-  console.log(sortedAsc);
-  return sortedAsc;
- 
 
-}
 
 // single data details show with model
 const loadToolsDetails=(id)=>{
@@ -104,12 +85,12 @@ const showModalToolsData=(toolsDetail)=>{
     document.getElementById('cost-2').innerHTML=`<span class="text-center text-success">${pricing[1].price?pricing[1].price:'No data found'}</span><br><span class="text-center text-success">${pricing[1].plan?pricing[1].plan:'No data found'}</span>`;
     document.getElementById('cost-3').innerHTML=`<span class="text-center text-primary">${pricing[2].price?pricing[2].price:'No data found'}</span><br><span class="text-center text-primary">${pricing[2].plan?pricing[2].plan:'No data found'}}</span>`;
     }else{
-        document.getElementById('cost-1').innerText='';
-        document.getElementById('cost-2').innerText='';
-        document.getElementById('cost-3').innerText='';
-        document.getElementById('pricing').innerText=`
-         No data found.It may be free
-        `;
+        document.getElementById('cost-1').innerText='pricing price is null';
+        document.getElementById('cost-2').innerText='pricing price is null';
+        document.getElementById('cost-3').innerText='pricing price is null';
+        // document.getElementById('pricing').innerText=`
+        //  No data found.It may be free
+        // `;
         
     };
     
