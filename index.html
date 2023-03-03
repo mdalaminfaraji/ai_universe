@@ -15,7 +15,7 @@
     <!-- header section start -->
     <header class="container text-center mt-4">
         <h1 class="p-2">AI Universe Hub</h1>
-        <button class="btn btn-danger ">Sort By date</button>
+        <button onclick="SortByDate()" id="sort-btn" class="btn btn-danger ">Sort By date</button>
     </header>
     <!-- header section end-->
     <main> 
@@ -63,10 +63,11 @@
       <div class="row">
       <div class="col-md-6">
         <h2 id="title"></h2>
-        <div class="row">
-            <p class="col-4" id="cost-1">a</p>
-            <p class="col-4" id="cost-2">b</p>
-            <p class="col-4"  id="cost-3">c</p>
+        <div id="price" class="row">
+            <p id="pricing" class=" text-center text-danger"></p>
+            <p class="col-4" id="cost-1"></p>
+            <p class="col-4" id="cost-2"></p>
+            <p class="col-4"  id="cost-3"></p>
             
         </div>
         <div class="row">
@@ -76,9 +77,12 @@
 
                  </ul>
             </div>
-            <div class="col-6">
+            <div  class="col-6">
                 <h2>Integrations</h2>
                  <ul id="li-integrations">
+                    <p id="intergration" class="text-center text-danger"></p>
+
+                   
                     
                 </ul>
             </div>
