@@ -15,7 +15,7 @@
     <!-- header section start -->
     <header class="container text-center mt-4">
         <h1 class="p-2">AI Universe Hub</h1>
-        <button onclick="SortByDate()" id="sort-btn" class="btn btn-danger ">Sort By date</button>
+        <button onclick="fetchDate()" id="sort-btn" class="btn btn-danger ">Sort By date</button>
     </header>
     <!-- header section end-->
     <main> 
@@ -58,16 +58,16 @@
       
         <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body mt-4 p-5 ">
+      <div id="modal-container" class="modal-body mt-4 p-5 ">
        <div class="container-fluid">
       <div class="row">
       <div class="col-md-6">
         <h2 id="title"></h2>
         <div id="price" class="row">
             <p id="pricing" class=" text-center text-danger"></p>
-            <p class="col-4" id="cost-1"></p>
-            <p class="col-4" id="cost-2"></p>
-            <p class="col-4"  id="cost-3"></p>
+            <p id="cost-1" class="col-4" id="cost-1"></p>
+            <p id="cost-2" class="col-4" id="cost-2"></p>
+            <p id="cost-3" class="col-4"  id="cost-3"></p>
             
         </div>
         <div class="row">
@@ -79,8 +79,11 @@
             </div>
             <div  class="col-6">
                 <h2>Integrations</h2>
-                 <ul id="li-integrations">
-                    <p id="intergration" class="text-center text-danger"></p>
+                 
+                 <ul>
+                  <li id="integration-1"></li>
+                  <li id="integration-2"></li>
+                  <li id="integration-3"></li>
 
                    
                     

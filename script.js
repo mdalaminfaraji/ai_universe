@@ -76,13 +76,13 @@ const displayDate=(tools)=>{
     (objA, objB)=>Number(objA.published_in) - Number(objB.published_in),
   );
   console.log(sortedAsc);
+  return sortedAsc;
  
 
 }
 
 // single data details show with model
 const loadToolsDetails=(id)=>{
-    // console.log(id)
     const url=`https://openapi.programming-hero.com/api/ai/tool/${id}`;
     fetch(url)
     .then(res=>res.json())
@@ -91,11 +91,12 @@ const loadToolsDetails=(id)=>{
 
 const showModalToolsData=(toolsDetail)=>{
     console.log(toolsDetail);
+    
      const {description, pricing, features, integrations, input_output_examples,image_link, accuracy }=toolsDetail;
     
     const titleDescription=document.getElementById('title');
     titleDescription.innerText=description;
-    //  document.getElementById('intergration').textContent='';
+    
 
     if(Array.isArray(pricing)){
          document.getElementById('pricing').innerText='';
@@ -103,7 +104,9 @@ const showModalToolsData=(toolsDetail)=>{
     document.getElementById('cost-2').innerHTML=`<span class="text-center text-success">${pricing[1].price?pricing[1].price:'No data found'}</span><br><span class="text-center text-success">${pricing[1].plan?pricing[1].plan:'No data found'}</span>`;
     document.getElementById('cost-3').innerHTML=`<span class="text-center text-primary">${pricing[2].price?pricing[2].price:'No data found'}</span><br><span class="text-center text-primary">${pricing[2].plan?pricing[2].plan:'No data found'}}</span>`;
     }else{
-        // document.getElementById('price').textContent='';
+        document.getElementById('cost-1').innerText='';
+        document.getElementById('cost-2').innerText='';
+        document.getElementById('cost-3').innerText='';
         document.getElementById('pricing').innerText=`
          No data found.It may be free
         `;
@@ -118,26 +121,22 @@ const showModalToolsData=(toolsDetail)=>{
     `;
     if(Array.isArray(integrations)){
        
-        document.getElementById('li-integrations').innerHTML=`
-    <li>${integrations[0]?integrations[0]:'No data found'}</li>
-    <li>${integrations[1]?integrations[1]:'No data found'}</li>
-    <li>${integrations[2]?integrations[2]:'No data found'}</li>
-    `;
+    document.getElementById('integration-1').innerText=`${integrations[0]?integrations[0]:'No data found'}`;
+    document.getElementById('integration-2').innerText=`${integrations[1]?integrations[1]:'No data found'}`;
+    document.getElementById('integration-3').innerText=`${integrations[2]?integrations[2]:'No data found'}`;
     }
     else{
-        document.getElementById('li-integrations').innerHTML='';
+        document.getElementById('integration-1').innerText='no data found';
+        document.getElementById('integration-2').innerText='no data found';
+        document.getElementById('integration-3').innerText='no data found';
+       
     };
-    // else{
-    //     document.getElementById('intergration').innerText=`
-    //     Integration data no found.Its my be null
-    //     `;
-    // };
+  
      
   
     const displayAccuracy= document.getElementById('accuracy');
-    console.log(typeof accuracy.score)
 
-    // displayAccuracy.classList.add('d-none');
+   
     if(typeof accuracy.score!= 'number'){
         displayAccuracy.classList.add('d-none');
     }else{
