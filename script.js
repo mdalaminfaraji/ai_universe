@@ -85,12 +85,9 @@ const showModalToolsData=(toolsDetail)=>{
     document.getElementById('cost-2').innerHTML=`<span class="text-center text-success">${pricing[1].price?pricing[1].price:'No data found'}</span><br><span class="text-center text-success">${pricing[1].plan?pricing[1].plan:'No data found'}</span>`;
     document.getElementById('cost-3').innerHTML=`<span class="text-center text-primary">${pricing[2].price?pricing[2].price:'No data found'}</span><br><span class="text-center text-primary">${pricing[2].plan?pricing[2].plan:'No data found'}}</span>`;
     }else{
-        document.getElementById('cost-1').innerText='pricing price is null';
-        document.getElementById('cost-2').innerText='pricing price is null';
-        document.getElementById('cost-3').innerText='pricing price is null';
-        // document.getElementById('pricing').innerText=`
-        //  No data found.It may be free
-        // `;
+        document.getElementById('cost-1').innerText='pricing price/plan is null';
+        document.getElementById('cost-2').innerText='pricing price/plan is null';
+        document.getElementById('cost-3').innerText='pricing plane/price is null';
         
     };
     
